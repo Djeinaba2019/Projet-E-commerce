@@ -25,9 +25,6 @@ private int quantity;
 @Column(name="Prix")
 private double prix; 
 
-@ManyToOne
-@JoinColumn(name="idProduit")
-private Produit produits ;
 
 //association bidirectionnelle
 @ManyToOne
@@ -58,13 +55,6 @@ public void setPrix(double prix) {
 	this.prix = prix;
 }
 
-public Produit getProduits() {
-	return produits;
-}
-
-public void setProduits(Produit produits) {
-	this.produits = produits;
-}
 
 public Commande getCommande() {
 	return commande;
@@ -74,11 +64,10 @@ public void setCommande(Commande commande) {
 	this.commande = commande;
 }
 
-public LigneCommande(int quantity, double prix, Produit produits, Commande commande) {
+public LigneCommande(int quantity, double prix, Commande commande) {
 	super();
 	this.quantity = quantity;
 	this.prix = prix;
-	this.produits = produits;
 	this.commande = commande;
 }
 
